@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-10-31T20:53:35.068301" rpa="false" schemaversion="5">
+<suite id="s1" name="testRobot" source="C:\Users\Jenny\IdeaProjects\RobotTest\testRobot.robot">
+<test id="s1-t1" name="Testing Dat file" line="32">
+<kw name="Navigate to webpage">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:35.263610" level="INFO">Opening browser 'chrome' to base url 'https://kztp47.github.io/Karokh-Arafs-dat-file-generator/'.</msg>
+<arg>https://kztp47.github.io/Karokh-Arafs-dat-file-generator/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T20:53:35.263424" elapsed="1.529187"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.793014" elapsed="0.030272"/>
+</kw>
+<status status="PASS" start="2025-10-31T20:53:35.262724" elapsed="1.560736"/>
+</kw>
+<kw name="Get files">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${loc_inputfile}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.824108" elapsed="0.010569"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:36.835106" level="INFO">Sending C:\Users\Jenny\Downloads\Blad1.csv to browser.</msg>
+<arg>${loc_inputFile}</arg>
+<arg>${CSVFile}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.834852" elapsed="0.025799"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:36.861330" level="INFO">Sending C:\Users\Jenny\Downloads\xlm INPUT file.xml to browser.</msg>
+<arg>${loc_xmlFile}</arg>
+<arg>${XMLFile}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.860928" elapsed="0.021257"/>
+</kw>
+<doc>This gets the actual files, sending errors if the files are not received</doc>
+<status status="PASS" start="2025-10-31T20:53:36.823819" elapsed="0.058495"/>
+</kw>
+<kw name="Add IG and Mapping">
+<kw name="Parse Xml" owner="XML">
+<msg time="2025-10-31T20:53:36.884473" level="INFO">${xml} = &lt;Element 'Options' at 0x0000027DD3675800&gt;</msg>
+<var>${xml}</var>
+<arg>${XML_FILE_PATH}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.883560" elapsed="0.000965"/>
+</kw>
+<kw name="Get Elements" owner="XML">
+<msg time="2025-10-31T20:53:36.884986" level="INFO">@{IGPre} = [ &lt;Element 'Pre' at 0x0000027DD36758F0&gt; | &lt;Element 'Pre' at 0x0000027DD3675990&gt; ]</msg>
+<var>@{IGPre}</var>
+<arg>${xml}</arg>
+<arg>.//IG/Pre</arg>
+<doc>Returns a list of elements in the ``source`` matching the ``xpath``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.884699" elapsed="0.000324"/>
+</kw>
+<kw name="Get Elements" owner="XML">
+<msg time="2025-10-31T20:53:36.885376" level="INFO">@{IGSuf} = [ &lt;Element 'Suf' at 0x0000027DD36758A0&gt; | &lt;Element 'Suf' at 0x0000027DD3675940&gt; | &lt;Element 'Suf' at 0x0000027DD36759E0&gt; ]</msg>
+<var>@{IGSuf}</var>
+<arg>${xml}</arg>
+<arg>.//IG/Suf</arg>
+<doc>Returns a list of elements in the ``source`` matching the ``xpath``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.885149" elapsed="0.000265"/>
+</kw>
+<kw name="Get Elements" owner="XML">
+<msg time="2025-10-31T20:53:36.885761" level="INFO">@{MAPPINGPre} = [ &lt;Element 'Pre' at 0x0000027DD3675AD0&gt; | &lt;Element 'Pre' at 0x0000027DD3675B70&gt; | &lt;Element 'Pre' at 0x0000027DD3675BC0&gt; | &lt;Element 'Pre' at 0x0000027DD3675C60&gt; ]</msg>
+<var>@{MAPPINGPre}</var>
+<arg>${xml}</arg>
+<arg>.//MAPPING/Pre</arg>
+<doc>Returns a list of elements in the ``source`` matching the ``xpath``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.885536" elapsed="0.000262"/>
+</kw>
+<kw name="Get Elements" owner="XML">
+<msg time="2025-10-31T20:53:36.886144" level="INFO">@{MAPPINGSuf} = [ &lt;Element 'Suf' at 0x0000027DD3675A80&gt; | &lt;Element 'Suf' at 0x0000027DD3675B20&gt; | &lt;Element 'Suf' at 0x0000027DD3675C10&gt; ]</msg>
+<var>@{MAPPINGSuf}</var>
+<arg>${xml}</arg>
+<arg>.//MAPPING/Suf</arg>
+<doc>Returns a list of elements in the ``source`` matching the ``xpath``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.885921" elapsed="0.000260"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.886313" elapsed="0.007677"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:36.894823" level="INFO">Clicking button 'id:addIgRuleBtn'.</msg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.894584" elapsed="0.067277"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:36.962521" level="INFO">${prefixText} = VXIGEN</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.962201" elapsed="0.000360"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:36.963006" level="INFO">Typing text 'VXIGEN' into text field '//*[@id="igRulesContainer"]/div[1]/input[1]'.</msg>
+<arg>//*[@id="igRulesContainer"]/div[${PreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:36.962695" elapsed="0.065668"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.029040" level="INFO">${PreDivNr} = 2</msg>
+<var>${PreDivNr}</var>
+<arg>${PreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.028651" elapsed="0.000431"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD36758F0&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:36.894438" elapsed="0.134698"/>
+</iter>
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.029616" level="INFO">Clicking button 'id:addIgRuleBtn'.</msg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.029425" elapsed="0.049316"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.079215" level="INFO">${prefixText} = IG11IGEN</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.078976" elapsed="0.000268"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.079609" level="INFO">Typing text 'IG11IGEN' into text field '//*[@id="igRulesContainer"]/div[2]/input[1]'.</msg>
+<arg>//*[@id="igRulesContainer"]/div[${PreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.079339" elapsed="0.054591"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.134459" level="INFO">${PreDivNr} = 3</msg>
+<var>${PreDivNr}</var>
+<arg>${PreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.134169" elapsed="0.000320"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD3675990&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.029319" elapsed="0.105222"/>
+</iter>
+<var>${prefix}</var>
+<value>@{IGPre}</value>
+<status status="PASS" start="2025-10-31T20:53:36.894162" elapsed="0.240444"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${PreDivNr}&lt;=${SufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.135319" elapsed="0.000299"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.135907" level="INFO">${suffixText} = VX</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.135749" elapsed="0.000183"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.136233" level="INFO">Typing text 'VX' into text field '//*[@id="igRulesContainer"]/div[1]/input[2]'.</msg>
+<arg>//*[@id="igRulesContainer"]/div[${SufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.136023" elapsed="0.054934"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.191459" level="INFO">${SufDivNr} = 2</msg>
+<var>${SufDivNr}</var>
+<arg>${SufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.191177" elapsed="0.000317"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD36758A0&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.135139" elapsed="0.056407"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${PreDivNr}&lt;=${SufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.191777" elapsed="0.000154"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.192152" level="INFO">${suffixText} = VXIGEN</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.192019" elapsed="0.000156"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.192480" level="INFO">Typing text 'VXIGEN' into text field '//*[@id="igRulesContainer"]/div[2]/input[2]'.</msg>
+<arg>//*[@id="igRulesContainer"]/div[${SufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.192259" elapsed="0.051937"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.244699" level="INFO">${SufDivNr} = 3</msg>
+<var>${SufDivNr}</var>
+<arg>${SufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.244413" elapsed="0.000321"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD3675940&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.191675" elapsed="0.053112"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.245366" level="INFO">Clicking button 'id:addIgRuleBtn'.</msg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.245208" elapsed="0.040879"/>
+</kw>
+<arg>${PreDivNr}&lt;=${SufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addIgRuleBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.245012" elapsed="0.041182"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.286563" level="INFO">${suffixText} = Testing</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.286335" elapsed="0.000263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.286916" level="INFO">Typing text 'Testing' into text field '//*[@id="igRulesContainer"]/div[3]/input[2]'.</msg>
+<arg>//*[@id="igRulesContainer"]/div[${SufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.286704" elapsed="0.053508"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.340693" level="INFO">${SufDivNr} = 4</msg>
+<var>${SufDivNr}</var>
+<arg>${SufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.340418" elapsed="0.000308"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD36759E0&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.244925" elapsed="0.095852"/>
+</iter>
+<var>${suffix}</var>
+<value>@{IGSuf}</value>
+<status status="PASS" start="2025-10-31T20:53:37.134985" elapsed="0.205848"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.341316" level="INFO">Clicking button 'id:addMappingBtn'.</msg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.341159" elapsed="0.060580"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.402136" level="INFO">${prefixText} = dsi</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.401928" elapsed="0.000236"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.402461" level="INFO">Typing text 'dsi' into text field '//*[@id="mappingRulesContainer"]/div[1]/input[1]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MPreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.402255" elapsed="0.056746"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.459521" level="INFO">${MPreDivNr} = 2</msg>
+<var>${MPreDivNr}</var>
+<arg>${MPreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.459224" elapsed="0.000328"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD3675AD0&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.341087" elapsed="0.118515"/>
+</iter>
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.460012" level="INFO">Clicking button 'id:addMappingBtn'.</msg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.459835" elapsed="0.043754"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.504012" level="INFO">${prefixText} = dsiigen</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.503794" elapsed="0.000251"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.504399" level="INFO">Typing text 'dsiigen' into text field '//*[@id="mappingRulesContainer"]/div[2]/input[1]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MPreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.504160" elapsed="0.053548"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.558211" level="INFO">${MPreDivNr} = 3</msg>
+<var>${MPreDivNr}</var>
+<arg>${MPreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.557929" elapsed="0.000317"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD3675B70&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.459739" elapsed="0.098757"/>
+</iter>
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.558890" level="INFO">Clicking button 'id:addMappingBtn'.</msg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.558729" elapsed="0.048740"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.607943" level="INFO">${prefixText} = Testing</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.607675" elapsed="0.000301"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.608352" level="INFO">Typing text 'Testing' into text field '//*[@id="mappingRulesContainer"]/div[3]/input[1]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MPreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.608093" elapsed="0.052790"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.661462" level="INFO">${MPreDivNr} = 4</msg>
+<var>${MPreDivNr}</var>
+<arg>${MPreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.661145" elapsed="0.000349"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD3675BC0&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.558637" elapsed="0.102907"/>
+</iter>
+<iter>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.662003" level="INFO">Clicking button 'id:addMappingBtn'.</msg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.661788" elapsed="0.043811"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.706017" level="INFO">${prefixText} = dsi</msg>
+<var>${prefixText}</var>
+<arg>${prefix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.705794" elapsed="0.000255"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.706387" level="INFO">Typing text 'dsi' into text field '//*[@id="mappingRulesContainer"]/div[4]/input[1]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MPreDivNr}]/input[1]</arg>
+<arg>${prefixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.706169" elapsed="0.049240"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.755889" level="INFO">${MPreDivNr} = 5</msg>
+<var>${MPreDivNr}</var>
+<arg>${MPreDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.755618" elapsed="0.000301"/>
+</kw>
+<var name="${prefix}">&lt;Element 'Pre' at 0x0000027DD3675C60&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.661693" elapsed="0.094276"/>
+</iter>
+<var>${prefix}</var>
+<value>@{MAPPINGPre}</value>
+<status status="PASS" start="2025-10-31T20:53:37.340917" elapsed="0.415111"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${MPreDivNr}&lt;=${MSufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.756353" elapsed="0.000140"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.756706" level="INFO">${suffixText} = SI</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.756579" elapsed="0.000155"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.757023" level="INFO">Typing text 'SI' into text field '//*[@id="mappingRulesContainer"]/div[1]/input[2]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MSufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.756826" elapsed="0.045836"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.803136" level="INFO">${MSufDivNr} = 2</msg>
+<var>${MSufDivNr}</var>
+<arg>${MSufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.802869" elapsed="0.000296"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD3675A80&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.756276" elapsed="0.046939"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${MPreDivNr}&lt;=${MSufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.803437" elapsed="0.000164"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.803862" level="INFO">${suffixText} = SIIGEN</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.803704" elapsed="0.000188"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.804283" level="INFO">Typing text 'SIIGEN' into text field '//*[@id="mappingRulesContainer"]/div[2]/input[2]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MSufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.804030" elapsed="0.050345"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.854875" level="INFO">${MSufDivNr} = 3</msg>
+<var>${MSufDivNr}</var>
+<arg>${MSufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.854586" elapsed="0.000322"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD3675B20&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.803346" elapsed="0.051623"/>
+</iter>
+<iter>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${MPreDivNr}&lt;=${MSufDivNr}</arg>
+<arg>Click Button</arg>
+<arg>${loc_addMappingBtn}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.855174" elapsed="0.000143"/>
+</kw>
+<kw name="Get Element Text" owner="XML">
+<msg time="2025-10-31T20:53:37.855576" level="INFO">${suffixText} = SI</msg>
+<var>${suffixText}</var>
+<arg>${suffix}</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.855407" elapsed="0.000200"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:37.855946" level="INFO">Typing text 'SI' into text field '//*[@id="mappingRulesContainer"]/div[3]/input[2]'.</msg>
+<arg>//*[@id="mappingRulesContainer"]/div[${MSufDivNr}]/input[2]</arg>
+<arg>${suffixText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.855738" elapsed="0.048850"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-10-31T20:53:37.905076" level="INFO">${MSufDivNr} = 4</msg>
+<var>${MSufDivNr}</var>
+<arg>${MSufDivNr}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.904770" elapsed="0.000343"/>
+</kw>
+<var name="${suffix}">&lt;Element 'Suf' at 0x0000027DD3675C10&gt;</var>
+<status status="PASS" start="2025-10-31T20:53:37.855094" elapsed="0.050227"/>
+</iter>
+<var>${suffix}</var>
+<value>@{MAPPINGSuf}</value>
+<status status="PASS" start="2025-10-31T20:53:37.756113" elapsed="0.149268"/>
+</for>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:38.137137" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T20:53:37.905512" elapsed="0.231761"/>
+</kw>
+<status status="PASS" start="2025-10-31T20:53:36.882912" elapsed="1.254481"/>
+</kw>
+<kw name="Generate File">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:38.138223" level="INFO">Clicking button 'id:generateBtn'.</msg>
+<arg>${loc_generateBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:38.138006" elapsed="0.092370"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${outputPreview}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-10-31T20:53:38.230588" elapsed="0.280853"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:38.520458" level="INFO">Current page contains text 'DAT-filen har genererats framgångsrikt!'.</msg>
+<arg>${SuccessText}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-10-31T20:53:38.511624" elapsed="0.008966"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T20:53:38.521065" level="INFO">Clicking button 'id:downloadBtn'.</msg>
+<arg>${loc_downloadBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T20:53:38.520785" elapsed="0.063334"/>
+</kw>
+<status status="PASS" start="2025-10-31T20:53:38.137723" elapsed="0.446523"/>
+</kw>
+<doc>This test takes files and compares them.</doc>
+<status status="PASS" start="2025-10-31T20:53:35.262057" elapsed="3.322571"/>
+</test>
+<status status="PASS" start="2025-10-31T20:53:35.070376" elapsed="3.514970"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="testRobot" id="s1" pass="1" fail="0" skip="0">testRobot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
